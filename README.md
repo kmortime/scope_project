@@ -1,58 +1,95 @@
-# Microscope Scope Control Program
+# A Digital Camera for Public Use  
+### Automated Microscope Display System  
 
+**Author:** Tom Mortimer  
+**Software Development:** Kevin Mortimer  
 **Version:** 1.17  
-**Author:** Tom & Kevin Mortimer  
-**Project:** MinDatNH Automated Microscope Viewer  
+**Project:** MinDatNH – Public Interactive Digital Microscope  
 
 ---
 
 ## Overview
 
-This repository contains the control software for an automated microscope platform built on a **Raspberry Pi**.  
-The system combines motorized control (tray rotation, zoom, focus), real-time video display, and specimen metadata visualization.
+This repository contains the **software and configuration files** for an **automated microscope viewer** designed to bring the micro-mineral collecting hobby to the public in an interactive, hands-on way — without actually touching the microscope.
 
-The main program (`test_auto.py`) orchestrates all hardware interactions, user input, and autonomous sequencing of specimens.  
-Each specimen has a corresponding `.json` configuration file (e.g., `specimen_10.json`) that defines its display parameters and descriptive metadata.
+Visitors can view up to ten real mineral specimens under a digital microscope and:
+- Rotate a motorized carousel of specimens.
+- Adjust focus and magnification electronically.
+- Watch live video feed on a large HDMI monitor.
+- Read specimen details and see supporting images onscreen.
+
+The system runs on a **Raspberry Pi 4**, using **Python**, **OpenCV**, **Pygame**, and **GPIO motor control** to drive three stepper motors and manage sensors, buttons, and display overlay.
+
+This is part of the ongoing *A Digital Camera for Public Use* project presented at mineral shows by **Tom Mortimer** of **MinDatNH**.
 
 ---
 
-## Files
+## Project Description
+
+Traditional stereo microscopes at mineral shows engage only one viewer at a time and require manual alignment and coaching.  
+This project replaces that with a **digital, motorized, and autonomous system**:
+
+- The viewer interacts via large arcade-style buttons — no microscope handling required.  
+- A Raspberry Pi drives stepper motors to control:
+  - **Carousel rotation (tray)**
+  - **Magnification (zoom ring)**
+  - **Focus (rack gear)**  
+- Optical sensors and limit switches ensure precise specimen alignment and prevent overtravel.  
+- The system automatically displays specimen names, chemistry, and collector information, drawn from per-specimen `.json` files.  
+
+When left idle, the system enters an **auto-run mode**, cycling through each specimen every 20 seconds.  
+Manual interaction pauses the sequence until the user stops pressing controls.
+
+---
+
+## Hardware Summary
+
+| Component | Function |
+|------------|-----------|
+| **Raspberry Pi 4 (4GB)** | Central controller, HDMI video output |
+| **Hayear 41 MP Digital Camera** | Provides live HDMI microscope feed |
+| **Stepper Motors (3× NEMA 17)** | Drive carousel, focus, and magnification axes |
+| **Optical Sensors (2×)** | Detect carousel tab positions for specimen indexing |
+| **Limit Switches (2×)** | Protect focus and zoom from overtravel |
+| **Arcade Pushbuttons** | User interface for bidirectional control |
+| **3D-Printed Carousel** | Integrated lazy-Susan base with optical tabs |
+| **Counterweighted Focus Arm** | Compensates for heavy lens and camera assembly |
+
+---
+
+## Software Components
 
 ### `test_auto.py`
 
-The primary control script for the microscope system.
+Main control program — runs all motion logic, camera display, and user interface.
 
-#### Features
-- **Motor control:** Uses GPIO pins to drive stepper motors for the TRAY, ZOOM, and FOCUS axes.  
-- **Sensor integration:** Reads optical sensors and limit switches to determine tray position and prevent overtravel.  
-- **Specimen mapping:** Associates tray rotation positions with known specimen ranges.  
-- **Autonomous operation:** Cycles through specimens after a configurable idle period.  
-- **User override:** Manual control via physical buttons pauses autonomous behavior.  
-- **Pygame interface:**  
-  - Displays live video feed from the microscope camera.  
-  - Shows a right-hand panel with specimen metadata and optional images.  
-  - Includes on-screen ruler scaling with zoom.  
-- **Initialization routines:** Automatically homes the tray, zoom, and focus axes.  
-- **Safety protections:** Step limits, debounced sensor reads, and GPIO error handling.  
+#### Key Capabilities
+- Initializes zoom, focus, and tray axes on startup.
+- Reads optical sensors to locate “Specimen 1”.
+- Loads specimen settings from individual JSON files.
+- Controls stepper motors via GPIO for precise movement.
+- Handles limit detection and recovery.
+- Displays live video feed using OpenCV + Pygame.
+- Shows overlay panel with specimen info and optional images.
+- Supports both **manual** and **autonomous** modes.
 
-#### Key Components
-| Component | Purpose |
-|------------|----------|
-| **motors** | Defines GPIO pins for each motor (TRAY, FOCUS, ZOOM). |
-| **specimen_ranges** | Maps each specimen to its two possible tray step ranges. |
-| **monitor_sensors()** | Watches optical sensors to detect tab transitions and specimen alignment. |
-| **move_motor_relative() / move_motor_to_absolute()** | Low-level motor stepping logic with safety checks. |
-| **autonomous_loop()** | Continuously cycles through specimens after idle timeouts. |
-| **initialize_*()** | Home the respective axes and prepare for autonomous operation. |
-| **UI panel** | Displays specimen info and image thumbnails. |
+#### Major Threads
+| Thread | Role |
+|--------|------|
+| `monitor_sensors()` | Tracks optical sensors to detect specimen transitions. |
+| `autonomous_loop()` | Automatically cycles through specimens on idle. |
+| `monitor_button()` | Handles user button presses and motor jog control. |
+| `run_initialization()` | Homes and aligns all axes safely. |
 
-#### Dependencies
-- `pygame` (UI and image display)
-- `opencv-python` (`cv2`, camera capture)
-- `RPi.GPIO` (hardware control)
-- `math`, `time`, `threading`, `json`, `os`
+#### User Interface
+- **Video window**: Full-screen microscope view with real-time ruler scale.
+- **Info panel**: Slides in to show specimen name, chemical formula, locality, and collector.
+- **Debug overlay**: Optional (`--debug` flag) shows motor step positions.
 
----
+#### Command Line
+```bash
+python3 test_auto.py [-d]
+
 
 ### `specimen_10.json`
 
