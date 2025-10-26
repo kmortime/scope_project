@@ -1,0 +1,14 @@
+{
+  "name": "Whitmoreite",
+  "chem": "Fe3(PO4)2(OH)2 · 4H2O",
+  "location": "Palermo #1 Mine, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -1319,
+  "default_focus": -995,
+  "default_rotation_offset": 265,      
+  "display_number": 9,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": "",
+  "3d_crystal_shape": "titanite.stl"
+}

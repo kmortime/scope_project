@@ -1,0 +1,13 @@
+{
+  "name": "Anatase",
+  "chem": "TiO2",
+  "location": "Pike-Hooksett Quarry, Hooksett, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -1465,
+  "default_focus": -950,
+  "default_rotation_offset": 194,  
+  "display_number": 3,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": ""
+}

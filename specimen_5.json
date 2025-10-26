@@ -1,0 +1,13 @@
+{
+  "name": "Titanite",
+  "chem": "CaTi(SiO4)O",
+  "location": "Joppa Hill Locality, Amherst, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -85,
+  "default_focus": -586,
+  "default_rotation_offset": 245,  
+  "display_number": 5,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": ""
+}

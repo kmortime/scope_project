@@ -1,0 +1,13 @@
+{
+  "name": "Whitmoreite",
+  "chem": "Fe3(PO4)2(OH)2 · 4H2O",
+  "location": "Chickering MIne, Walpole, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -1337,
+  "default_focus": -610,
+  "default_rotation_offset": 121,          
+  "display_number": 10,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": ""
+}

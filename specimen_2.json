@@ -1,0 +1,13 @@
+{
+  "name": "Flourapatite",
+  "chem": "CaF Ca5(PO4)3F",
+  "location": "Keyes #1 Mine, Orange, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -85,
+  "default_focus": -788,
+  "default_rotation_offset": 207,  
+  "display_number": 2,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": ""
+}

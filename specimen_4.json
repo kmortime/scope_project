@@ -1,0 +1,13 @@
+{
+  "name": "Laueite",
+  "chem": "Mn2+Fe3+2(PO4)2(OH)2 · 8H2O",  
+  "location": "Palermo Mine, Groton, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -770,
+  "default_focus": -1020,
+  "default_rotation_offset": 250,  
+  "display_number": 4,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": ""
+}

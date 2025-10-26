@@ -1,0 +1,14 @@
+{
+  "name": "Arsenopyrite",
+  "chem": "FeAsS",
+  "location": "Mine Falls Park, Nashua, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": 0,
+  "default_focus": -604,
+  "default_rotation_offset": 290,  
+  "display_number": 7,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": "",
+  "3d_crystal_shape": "malachite.stl"
+}

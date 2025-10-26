@@ -1,0 +1,14 @@
+{
+  "name": "Malachite",
+  "chem": "Cu2(CO3)(OH)2",
+  "location": "Stoddard Mine, Westmoreland, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -505,
+  "default_focus": -1051,
+  "default_rotation_offset": 263,  
+  "display_number": 8,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": "",
+  "3d_cyrstal_shape": "malachite.stl"  
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Wulfenite",
+  "chem": "Pb(MoO4)",
+  "location": "Loudville Lead Mine, East Hampton, MA",
+  "collector": "Tom Mortimer",
+  "default_zoom": -1901,
+  "default_focus": -1122,
+  "default_rotation_offset": 204,  
+  "display_number": 1,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": "",
+  "3d_crystal_shape": "wulfenite.stl"  
+}

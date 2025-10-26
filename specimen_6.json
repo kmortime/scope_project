@@ -1,0 +1,13 @@
+{
+  "name": "Chabazite",
+  "chem": "(K2,Ca,Na2,Sr,Mg)2[Al2Si4O21]2 · 12H2O",
+  "location": "Mine Falls Park, Nashua, NH",
+  "collector": "Tom Mortimer",
+  "default_zoom": -595,
+  "default_focus": -907,
+  "default_rotation_offset": 284,  
+  "display_number": 6,
+  "map_image": "",
+  "eds_image": "",
+  "qr_code_image": ""
+}
